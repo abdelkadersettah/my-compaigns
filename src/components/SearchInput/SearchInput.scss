@@ -1,0 +1,27 @@
+.search-input {
+  display: flex;
+  &__field {
+    padding: 0.5rem;
+    padding-left: 0.8rem;
+    outline: none;
+    transition: all linear 0.2s;
+    border-color: var(--white);
+    font-size: 1rem;
+    border-radius: 8px 0 0 8px;
+    width: 250px;
+    border: none;
+  }
+  &__cta {
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0px 8px 8px 0;
+    &:disabled {
+      background-color: #dddddd;
+      cursor: not-allowed;
+    }
+  }
+}
