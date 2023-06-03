@@ -7,7 +7,7 @@ describe('SearchInput', () => {
     const searchInputContainer = screen.getByTestId('search-input');
     const searchField = searchInputContainer.querySelector('input');
     expect(searchInputContainer).toBeInTheDocument();
-    expect(searchField?.name).toBe('search');
+    expect(searchField?.name).toBe('searchKey');
   });
   test('should render the Search button ', () => {
     render(<SearchInput />);
@@ -37,14 +37,10 @@ describe('SearchInput', () => {
     expect(searchButton).toBeInTheDocument();
     expect(searchButton?.disabled).toBe(true);
   });
-  test('should unable the Search button if user write search key', () => {
-    render(<SearchInput />);
+  test('should enable the Search button if user write search key', () => {
+    render(<SearchInput value="random text" />);
     const searchInputContainer = screen.getByTestId('search-input');
-    const searchField = searchInputContainer.querySelector('input');
     const searchButton = searchInputContainer.querySelector('button');
-    fireEvent.change(searchField as Element, {
-      target: { value: 'random text' },
-    });
     expect(searchButton?.disabled).toBe(false);
   });
   test('should fire on Search if the search button clicked', () => {

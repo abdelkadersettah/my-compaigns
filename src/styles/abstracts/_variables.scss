@@ -1,5 +1,9 @@
 :root {
-  --primary-color: #198754;
+  --primary-color: rgb(25, 135, 84);
+  --primary-color-op-10: rgb(25, 135, 84, 0.1);
+  --primary-color-op-50: rgb(25, 135, 84, 0.5);
+  --danger: #ff6e6e;
   --secondary-color: #212529;
   --white: #fff;
+  --default-padding: 1.2rem 2rem;
 }

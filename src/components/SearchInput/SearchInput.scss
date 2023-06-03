@@ -19,6 +19,8 @@
     cursor: pointer;
     border: none;
     border-radius: 0px 8px 8px 0;
+    display: flex;
+    align-items: center;
     &:disabled {
       background-color: #dddddd;
       cursor: not-allowed;

@@ -1,0 +1,13 @@
+.campaign {
+  &__filter {
+    padding: var(--default-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: var(--primary-color-op-10);
+    gap: 1rem;
+    white-space: nowrap;
+    margin-bottom: 1rem;
+  }
+}

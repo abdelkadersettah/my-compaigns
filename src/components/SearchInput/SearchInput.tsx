@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
 import './SearchInput.scss';
 
 interface IProps {
@@ -7,16 +7,17 @@ interface IProps {
   searchText?: string;
   onSearch?: (searchedKey: string) => void;
   onValueChange?: (searchedKey: string) => void;
+  value?: string;
 }
 
 const SearchInput: React.FC<IProps> = ({
-  name = 'search',
+  name = 'searchKey',
   placeholder = 'Search...',
   searchText = 'Search',
   onValueChange,
   onSearch,
+  value,
 }) => {
-  const [searchKey, setSearchKey] = useState('');
   return (
     <div className="search-input" data-testid="search-input">
       <input
@@ -25,9 +26,8 @@ const SearchInput: React.FC<IProps> = ({
         className="search-input__field"
         name={name}
         id={name}
-        value={searchKey}
+        value={value}
         onChange={(e) => {
-          setSearchKey(e.target.value);
           onValueChange && onValueChange(e.target.value);
         }}
       />
@@ -35,13 +35,13 @@ const SearchInput: React.FC<IProps> = ({
         className="search-input__cta"
         type="button"
         onClick={(e) => {
-          if (searchKey.trim().length > 0 && onSearch) {
-            onSearch(searchKey);
+          if (value && onSearch) {
+            onSearch(value);
           }
         }}
-        disabled={searchKey.trim().length === 0}
+        disabled={!value}
       >
-        {searchText}
+        <AiOutlineSearch style={{ fontSize: '1.4rem' }} />
       </button>
     </div>
   );
