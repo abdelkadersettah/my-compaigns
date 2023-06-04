@@ -18,7 +18,7 @@ const DateFilter = ({ endDate, startDate, onChange }: Props) => {
     }
   }, [endDate, startDate]);
   return (
-    <article className="date-filter">
+    <article className="date-filter" data-testid="DateFilter">
       <label className="date-filter__label" htmlFor="startDate">
         Filter By date
       </label>
@@ -70,6 +70,7 @@ const DateFilter = ({ endDate, startDate, onChange }: Props) => {
           <AiFillCloseCircle
             className="date-filter__clear"
             onClick={(e) => onChange('endDate', '')}
+            data-testid="clearEndDate"
           />
         )}
       </article>

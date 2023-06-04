@@ -73,7 +73,7 @@ const Table = ({ data }: Props) => {
   });
   return (
     <article className="table">
-      <table>
+      <table id="campaignTable">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
