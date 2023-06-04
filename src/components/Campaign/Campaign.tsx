@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCampaigns } from '../../context/CompaingsContext';
 import { useFilterOption } from '../../context/FilterContext';
-import { convertStringToDate } from '../../utils/convertStringToDate';
 import DateFilter from '../DateFilter/DateFilter';
 import SearchInput from '../SearchInput/SearchInput';
 import Table from '../Table/Table';
@@ -21,8 +20,8 @@ const Campaign = (props: Props) => {
   };
   const handleFilterByDate = (startDate: string, endDate: string) => {
     const searchResult = campaignsData.filter((c) => {
-      const filterStartDate = convertStringToDate(startDate).getTime();
-      const filterEndDate = convertStringToDate(endDate).getTime();
+      const filterStartDate = new Date(startDate).getTime();
+      const filterEndDate = new Date(endDate).getTime();
       const campaignStartDateTime = new Date(c.startDate)?.getTime();
       const campaignEndTime = new Date(c.endDate)?.getTime();
 
