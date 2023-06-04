@@ -3,7 +3,7 @@
 The Campaigns app is a web application built using React and TypeScript that allows users to view and manage campaigns.
 It provides a user-friendly interface to render a list of campaigns in a grid format.
 The app utilizes the `@tanstack/react-table` libraries to enhance the date picking and table functionality.
-You can see the working app ![here](https://amazing-brigadeiros-08b6aa.netlify.app/)
+You can see the working app [here](https://amazing-brigadeiros-08b6aa.netlify.app/)
 
 ## Features
 
