@@ -8,6 +8,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import { useMemo, useState } from 'react';
+import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { campaignsDto } from '../../model/campaignsDto';
 import { budgetFormatter } from '../../utils/budgetFormatter';
 import { getCampaignStatus } from '../../utils/getCampaignStatus';
@@ -30,7 +31,15 @@ const Table = ({ data }: Props) => {
         accessorKey: 'status',
         cell: (info) => {
           const rowData = info.row.original;
-          return getCampaignStatus(rowData);
+          return getCampaignStatus(rowData) === 'Inactive' ? (
+            <>
+              <AiFillCheckCircle style={{ color: '#ed5353' }} /> Inactive
+            </>
+          ) : (
+            <>
+              <AiFillCloseCircle style={{ color: 'rgb(25, 135, 84)' }} /> Active
+            </>
+          );
         },
         enableSorting: true,
         sortingFn: (rowA, rowB) => {

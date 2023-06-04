@@ -32,7 +32,14 @@ const DateFilter = ({ endDate, startDate, onChange }: Props) => {
           withPortal
           onChange={(SelectedDate) => {
             if (SelectedDate) {
-              onChange('startDate', SelectedDate.toLocaleDateString('FR'));
+              onChange(
+                'startDate',
+                SelectedDate.toLocaleDateString('en-us', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit',
+                })
+              );
             } else {
               onChange('startDate', '');
             }
@@ -60,7 +67,14 @@ const DateFilter = ({ endDate, startDate, onChange }: Props) => {
           isClearable={true}
           onChange={(SelectedDate) => {
             if (SelectedDate) {
-              onChange('endDate', SelectedDate?.toLocaleDateString('FR'));
+              onChange(
+                'endDate',
+                SelectedDate?.toLocaleDateString('en-us', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit',
+                })
+              );
             } else {
               onChange('endDate', '');
             }

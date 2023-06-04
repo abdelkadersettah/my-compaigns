@@ -6,7 +6,7 @@ export const getCampaignStatus = (rowData: campaignsDto) => {
   const starDateTime = new Date(startDate)?.getTime();
   const endDateTime = new Date(endDate)?.getTime();
   const todayTime = new Date().getTime();
-  const isActive = starDateTime <= todayTime && todayTime <= endDateTime;
+  const isActive = todayTime > starDateTime && todayTime <= endDateTime;
 
   return isActive ? 'Active' : 'Inactive';
 };
