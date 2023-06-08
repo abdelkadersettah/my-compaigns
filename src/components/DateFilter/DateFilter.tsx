@@ -30,6 +30,8 @@ const DateFilter = ({ endDate, startDate, onChange }: Props) => {
           value={startDate}
           autoComplete="off"
           withPortal
+          showMonthDropdown
+          showYearDropdown
           onChange={(SelectedDate) => {
             if (SelectedDate) {
               onChange(
@@ -63,6 +65,8 @@ const DateFilter = ({ endDate, startDate, onChange }: Props) => {
           value={startDate ? endDate : undefined}
           disabled={!startDate}
           withPortal
+          showMonthDropdown
+          showYearDropdown
           minDate={startDate ? convertStringToDate(startDate) : null}
           isClearable={true}
           onChange={(SelectedDate) => {

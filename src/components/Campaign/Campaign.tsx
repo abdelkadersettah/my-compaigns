@@ -20,14 +20,13 @@ const Campaign = (props: Props) => {
   };
   const handleFilterByDate = (startDate: string, endDate: string) => {
     const searchResult = campaignsData.filter((c) => {
-      const filterStartDate = new Date(startDate).getTime();
-      const filterEndDate = new Date(endDate).getTime();
-      const campaignStartDateTime = new Date(c.startDate)?.getTime();
-      const campaignEndTime = new Date(c.endDate)?.getTime();
-
+      const filterStartDate = new Date(startDate);
+      const filterEndDate = new Date(endDate);
+      const campaignStartDateTime = new Date(c.startDate);
+      const campaignEndTime = new Date(c.endDate);
       const isAvailable =
-        filterStartDate <= campaignStartDateTime &&
-        filterEndDate <= campaignEndTime;
+        campaignStartDateTime >= filterStartDate &&
+        campaignEndTime <= filterEndDate;
       return isAvailable;
     });
     setTableData(searchResult);
